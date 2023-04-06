@@ -1,6 +1,6 @@
 # Laminas OpenStreetMap
 
-This package primarily simplifies integrating [the OpenStreetMap (OSM) API](https://wiki.openstreetmap.org/wiki/API) into Mezzio projects and makes working with the API simpler in non-Mezzio projects as well.
+This package primarily simplifies integrating [the OpenStreetMap (OSM) API](https://wiki.openstreetmap.org/wiki/API) into [Mezzio](https://docs.mezzio.dev/mezzio/) projects and makes working with the API simpler in non-Mezzio projects as well.
 
 ## Installation
 
