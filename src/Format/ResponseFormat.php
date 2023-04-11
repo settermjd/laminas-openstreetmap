@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Settermjd\LaminasOpenStreetMap;
+namespace LaminasOpenStreetMap\Format;
 
 enum ResponseFormat: string
 {
