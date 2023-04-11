@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LaminasOpenStreetMap;
+namespace Laminas\OpenStreetMap;
 
 use GuzzleHttp\Client;
 use Psr\Container\ContainerInterface;

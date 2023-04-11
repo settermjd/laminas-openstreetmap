@@ -16,12 +16,12 @@
     },
     "autoload": {
         "psr-4": {
-            "LaminasOpenStreetMap\\": "src/"
+            "Laminas\\OpenStreetMap\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "LaminasOpenStreetMapTest\\": "test/LaminasOpenStreetMapTest"
+            "LaminasTest\\OpenStreetMap\\": "test/"
         }
     },
     "authors": [
@@ -61,6 +61,11 @@
     "config": {
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "extra": {
+        "laminas": {
+            "config-provider": "Laminas\\OpenStreetMap\\ConfigProvider"
         }
     }
 }

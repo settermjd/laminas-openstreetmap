@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LaminasOpenStreetMap;
+namespace Laminas\OpenStreetMap;
 
 class ConfigProvider
 {

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Settermjd\LaminasOpenStreetMap\Test;
+namespace LaminasTest\OpenStreetMap;
 
 use GuzzleHttp\ClientInterface;
+use Laminas\OpenStreetMap\Format\ResponseFormat;
+use Laminas\OpenStreetMap\OpenStreetMap;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
-use Settermjd\LaminasOpenStreetMap\OpenStreetMap;
-use Settermjd\LaminasOpenStreetMap\ResponseFormat;
 
 class OpenStreetMapTest extends TestCase
 {

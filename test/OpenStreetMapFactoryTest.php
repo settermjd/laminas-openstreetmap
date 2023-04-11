@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace LaminasOpenStreetMapTest;
+namespace LaminasTest\OpenStreetMap;
 
-use LaminasOpenStreetMap\OpenStreetMapFactory;
+use Laminas\OpenStreetMap\OpenStreetMapFactory;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 

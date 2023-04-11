@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace LaminasOpenStreetMap;
+namespace Laminas\OpenStreetMap;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
-use LaminasOpenStreetMap\Format\ResponseFormat;
+use Laminas\OpenStreetMap\Format\ResponseFormat;
 
 class OpenStreetMap
 {
