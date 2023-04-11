@@ -2,16 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Settermjd\LaminasOpenStreetMap;
+namespace LaminasOpenStreetMap;
 
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\GuzzleException;
+use LaminasOpenStreetMap\Format\ResponseFormat;
 
 class OpenStreetMap
 {
     public const DEFAULT_RESPONSE_SIZE = 10;
 
-    private string $api = 'https://nominatim.openstreetmap.org/';
     private string $language;
+
+    public function getLanguage(): string
+    {
+        return $this->language;
+    }
 
     public function __construct(private readonly ClientInterface $client, string $language)
     {
