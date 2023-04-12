@@ -12,7 +12,9 @@
         "php": "~8.1.0 || ~8.2.0",
         "guzzlehttp/guzzle": "^7.5",
         "guzzlehttp/psr7": "^2.4",
-        "shrikeh/teapot": "^2.3"
+        "shrikeh/teapot": "^2.3",
+        "laminas/laminas-hydrator": "^4.13",
+        "laminas/laminas-eventmanager": "^3.10"
     },
     "autoload": {
         "psr-4": {
