@@ -10,8 +10,9 @@ class JsonSearchResultFactoryTest extends TestCase
 {
     public function testCanHydrateASearchResultObjectFromValidData(): void
     {
+        // phpcs:disable Generic.Files.LineLength
         $searchResult = <<<EOF
-{
+[{
     "address": {
         "city": "Berlin",
         "city_district": "Mitte",
@@ -43,13 +44,14 @@ class JsonSearchResultFactoryTest extends TestCase
     "osm_type": "node",
     "place_id": "1453068",
     "type": "bakery"
-}
+}]
 EOF;
+        // phpcs:enable
 
         $factory = new JsonSearchResultFactory();
         $result  = $factory($searchResult);
-        $this->assertInstanceOf(JsonSearchResult::class, $result);
-        $this->assertSame('Berlin', $result->getAddress()->getCity());
-        $this->assertSame('Mitte', $result->getAddress()->getCityDistrict());
+        $this->assertInstanceOf(JsonSearchResult::class, $result[0]);
+        $this->assertSame('Berlin', $result[0]->getAddress()->getCity());
+        $this->assertSame('Mitte', $result[0]->getAddress()->getCityDistrict());
     }
 }

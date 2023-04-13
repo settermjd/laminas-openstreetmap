@@ -18,7 +18,10 @@ use const JSON_OBJECT_AS_ARRAY;
 
 class JsonSearchResultFactory
 {
-    public function __invoke(string $searchResult = ''): JsonSearchResult
+    /**
+     * @return array<int,JsonSearchResult>
+     */
+    public function __invoke(string $searchResult = ''): array
     {
         $hydrator = new ReflectionHydrator();
         $hydrator->setNamingStrategy(new CompositeNamingStrategy(
@@ -59,8 +62,12 @@ class JsonSearchResultFactory
             )
         );
 
-        /** @var array $data */
-        $data = json_decode($searchResult, associative: true, flags: JSON_OBJECT_AS_ARRAY);
-        return $hydrator->hydrate($data, new JsonSearchResult());
+        /** @var array<array<int,mixed>> $response */
+        $response      = json_decode($searchResult, associative: true, flags: JSON_OBJECT_AS_ARRAY);
+        $searchResults = [];
+        foreach ($response as $placeDetails) {
+            $searchResults[] = $hydrator->hydrate($placeDetails, new JsonSearchResult());
+        }
+        return $searchResults;
     }
 }

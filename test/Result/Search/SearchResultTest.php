@@ -10,7 +10,9 @@ class SearchResultTest extends TestCase
 {
     public function testCanHydrateResultFromValidSearchResult(): void
     {
-        $searchQuery  = '135 pilkington avenue, birmingham';
+        $searchQuery = '135 pilkington avenue, birmingham';
+
+        // phpcs:disable Generic.Files.LineLength
         $searchResult = <<<EOF
 {
     "address": {
@@ -47,4 +49,6 @@ class SearchResultTest extends TestCase
 }
 EOF;
     }
+
+    // phpcs:enable
 }
