@@ -9,6 +9,10 @@ use GuzzleHttp\Exception\GuzzleException;
 use Laminas\OpenStreetMap\Format\ResponseFormat;
 use Laminas\OpenStreetMap\Result\Search\JsonSearchResult;
 use Laminas\OpenStreetMap\Result\Search\JsonSearchResultFactory;
+use Laminas\OpenStreetMap\Result\Search\SearchOptions;
+use Laminas\OpenStreetMap\Result\Search\SearchOptionsFactory;
+
+use function array_merge;
 
 class OpenStreetMap
 {
@@ -42,19 +46,23 @@ class OpenStreetMap
         string $searchQuery,
         ResponseFormat $responseFormat,
         int $limit = self::DEFAULT_RESPONSE_SIZE,
+        ?SearchOptions $searchOptions = null,
         bool $returnRaw = false,
     ): string|array {
+        $searchParams = [
+            'q'               => $searchQuery,
+            'limit'           => $limit,
+            'format'          => $responseFormat->value,
+            'accept-language' => $this->language,
+        ];
+
         $request = $this->client->request(
             'GET',
             'search',
             [
-                'query' => [
-                    'q'               => $searchQuery,
-                    'polygon_geojson' => 1,
-                    'limit'           => $limit,
-                    'format'          => $responseFormat->value,
-                    'accept-language' => $this->language,
-                ],
+                'query' => $searchOptions instanceof SearchOptions
+                    ? array_merge($searchParams, (new SearchOptionsFactory())->extract($searchOptions))
+                    : $searchParams,
             ]
         );
 
